@@ -10,7 +10,7 @@ $:.unshift File.join(File.dirname(__FILE__), *%w[vendor libxml lib])
   logger
 
   blather/core_ext/active_support
-  blather/core_ext/libxml
+  blather/core_ext/libxml 
 
   blather/errors
   blather/jid
@@ -34,6 +34,7 @@ $:.unshift File.join(File.dirname(__FILE__), *%w[vendor libxml lib])
   blather/stream/sasl
   blather/stream/session
   blather/stream/tls
+  blather/client
 ].each { |r| require r }
 
 XML.indent_tree_output = false
