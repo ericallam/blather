@@ -5,6 +5,10 @@ require 'mocha'
 
 module MiniTest
   require 'pathname' if MINI_DIR =~ %r{^./}
+  
+  class Spec
+    include Mocha::Standalone
+  end
 
   module Assertions
     def assert_change(obj, method, args = {}, msg = nil)
