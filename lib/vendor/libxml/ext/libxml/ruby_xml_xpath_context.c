@@ -313,9 +313,11 @@ rxml_xpath_context_enable_cache(int argc,  VALUE *argv, VALUE self)
   {
 	  value = NUM2INT(size);
   }
-
+  
+  #ifdef _xmlXPathContextSetCache
   if (xmlXPathContextSetCache(xctxt, 1, value, 0) == -1)
     rxml_raise(&xmlLastError);
+  #endif
 
   return self;
 }
@@ -331,8 +333,10 @@ rxml_xpath_context_disable_cache(VALUE self) {
   xmlXPathContextPtr xctxt;
   Data_Get_Struct(self, xmlXPathContext, xctxt);
 
+  #ifdef _xmlXPathContextSetCache
   if (xmlXPathContextSetCache(xctxt, 0, 0, 0) == -1)
     rxml_raise(&xmlLastError);
+  #endif
 
   return self;
 }
